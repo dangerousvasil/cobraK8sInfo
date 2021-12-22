@@ -1,3 +1,4 @@
-FROM scratch
-ADD cobraK8sInfo /cobraK8sInfo
-CMD ["/cobraK8sInfo httpd"]
+FROM alpine:3.9
+COPY cobraK8sInfo /
+ENTRYPOINT ["ls -la /"]
+#CMD ["/cobraK8sInfo httpd"]
