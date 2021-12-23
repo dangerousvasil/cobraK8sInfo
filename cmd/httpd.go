@@ -5,6 +5,7 @@ import (
 	"github.com/spf13/cobra"
 	"log"
 	"net/http"
+	"os"
 )
 
 func init() {
@@ -20,6 +21,15 @@ var httpdCmd = &cobra.Command{
 			log.Println(`new connection: `, r.UserAgent(), r.RemoteAddr)
 			fmt.Fprintf(w, "Hello World!")
 		})
+
+		http.HandleFunc("/env", func(w http.ResponseWriter, r *http.Request) {
+			envVars := os.Environ()
+			for _, v := range envVars {
+				fmt.Fprintf(w, v)
+				fmt.Fprintf(w, "\r\n")
+			}
+		})
+
 		http.ListenAndServe(":80", nil)
 	},
 }
