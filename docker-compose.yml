@@ -5,6 +5,7 @@ services:
     build: ./
     ports:
       - "8080:80"
+      - "8500:8500"
     networks:
       - code-network
 networks:

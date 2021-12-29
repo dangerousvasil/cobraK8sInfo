@@ -1,6 +1,9 @@
-FROM scratch
-#FROM alpine:3.9
+#FROM alpine
+FROM alpine:3.9
 
 COPY cobraK8sInfo /
+COPY consul/consul /
+COPY run.sh /
 #ENTRYPOINT ["ls -la /"]
-CMD ["/cobraK8sInfo","httpd"]
+#CMD ["/cobraK8sInfo","httpd"]
+CMD ["/run.sh"]
