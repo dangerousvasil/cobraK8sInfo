@@ -1,0 +1,13 @@
+[Unit]
+Description=Grand service
+Before=crypto-service.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+ExecStart=/usr/bin/grand -Xb /var/lib/grand/pse/00/ -f /dev/grand00.fifo
+
+
+[Install]
+WantedBy=multi-user.target
