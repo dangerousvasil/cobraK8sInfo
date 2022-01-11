@@ -1,0 +1,18 @@
+{
+  "service": {
+    "name": "memcached",
+    "tags": ["primary"],
+    "address": "",
+    "port": 11211,
+    "meta": {
+      "meta": "for ckki service"
+    },
+    "checks": [
+      {
+        "tcp": "localhost:11211",
+        "interval": "10s",
+        "timeout": "1s"
+      }
+    ]
+  }
+}
